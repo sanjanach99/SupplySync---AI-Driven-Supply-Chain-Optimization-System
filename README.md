@@ -184,6 +184,6 @@ AI-Driven-Supply-Chain-Optimization
 
 📧 sanjanach78@gmail.com
 
-💼 LinkedIn: *(Add your profile link here)*
+💼 LinkedIn: *(linkedin.com/in/ch-sanjana)*
 
 ⭐ If you found this project useful, feel free to star the repository!
