@@ -1,78 +1,189 @@
-# Automated Supply Chain Analytics Pipeline with n8n, Supabase, and Quadratic
+<div align="center">
 
-![n8n](https://img.shields.io/badge/n8n-1555D8?style=for-the-badge&logo=n8n&logoColor=white)
-![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
-![Quadratic](https://img.shields.io/badge/Quadratic-5A54A4?style=for-the-badge)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![Postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+# 🚚 AI-Driven Supply Chain Optimization
+### Intelligent Supply Chain Analytics using n8n, Gmail, Supabase PostgreSQL & Quadratic
 
-This project implements a sophisticated, end-to-end supply chain analytics pipeline. It uses **n8n** to automate two key workflows: an initial bulk data load and a trigger-based system that automatically ingests new data from **Gmail** attachments. All processed data is loaded into a **Supabase** Postgres database for final analysis and visualization in **Quadratic**.
+![Supply Chain](https://img.shields.io/badge/Supply%20Chain-Analytics-blue?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-Data%20Analysis-yellow?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge)
+![n8n](https://img.shields.io/badge/n8n-Automation-orange?style=for-the-badge)
+![Quadratic](https://img.shields.io/badge/Quadratic-Visualization-green?style=for-the-badge)
 
-The primary goal is to create a self-updating system that transforms raw order data into actionable business intelligence, such as **On-Time In-Full (OTIF)** metrics, available for interactive exploration.
+### AI • Automation • ETL • Business Intelligence • Portfolio Project
 
-## 🚀 Key Features
+</div>
 
-* **Dual-Mode ETL (Extract, Transform, Load) Pipeline**: Supports both an initial bulk data load and automated incremental updates.
-* **Email-Triggered Automation**: An n8n workflow listens for specific emails and automatically parses attached CSVs (`fact_order_line`, `fact_aggregate`) to ensure the database is always up-to-date.
-* **Data Cleaning & Transformation**: Robustly cleans data, merges multiple sources, and performs currency conversion.
-* **KPI Calculation**: Computes essential supply chain metrics (OTIF, LFR, VFR) to measure performance.
-* **Scalable Architecture**: Uses a modern tech stack with a cloud-based Postgres (Supabase) database.
-* **📊 Interactive Analysis**: Connects the processed data to Quadratic for a powerful, spreadsheet-like interface for ad-hoc analysis and visualization.
+---
 
-## 🛠️ Tech Stack
+# ✨ Project Overview
 
-* **Automation/ETL**: [n8n](https://n8n.io/)
-* **Data Trigger**: Gmail
-* **Database**: [Supabase](https://supabase.com/) (Postgres)
-* **Data Analysis & Visualization**: [Quadratic](https://www.quadratichq.com/)
-* **Data Manipulation**: Python (within n8n nodes)
-* **Data Source**: CSV Files (local and via email attachments)
+This project demonstrates an automated end-to-end Supply Chain Analytics pipeline that continuously processes operational data and transforms it into actionable business insights.
 
-## 📊 Project Workflow
+Using **n8n** for workflow automation, **Gmail** as the incoming data source, **Supabase PostgreSQL** as the cloud database, and **Quadratic** for analysis, the system eliminates manual data ingestion while enabling real-time supply chain performance monitoring.
 
-The project consists of two primary automated workflows orchestrated by n8n.
+The solution tracks key logistics metrics including **OTIF**, **LFR**, and **VFR**, helping businesses identify operational bottlenecks and improve decision-making.
 
-### 1. Initial Bulk Data Load
+---
 
-This workflow is run once to set up the foundational dataset.
-* **Data Ingestion**: Reads a complete set of historical data from local CSV files (`dim_customers`, `dim_products`, etc.).
-* **Full Transformation**: Cleans, merges all dimension and fact tables, generates date and exchange rate tables, and calculates metrics like `total_amount`.
-* **Database Seeding**: Loads all the cleaned, foundational tables into the Supabase Postgres database.
+# 🎯 Business Objectives
 
-### 2. Automated Incremental Updates via Email
+- Automate supply chain data ingestion
+- Eliminate manual CSV processing
+- Build a centralized cloud database
+- Monitor OTIF, LFR and VFR KPIs
+- Enable real-time business reporting
+- Improve operational visibility
 
-This workflow runs automatically whenever new data is received.
+---
 
-* **Gmail Trigger**: The workflow is triggered when a new email with specific criteria (e.g., subject line, sender) arrives.
-* **Attachment Parsing**: It extracts the attached `fact_order_line` and `fact_aggregate` CSV files.
-* **Data Extraction & Loading**: In parallel, it processes each file and inserts the new rows directly into the corresponding `fact_order_line` and `fact_aggregate` tables in the Supabase database.
-* **Analysis**: The new data is immediately available in Quadratic for up-to-the-minute analysis.
+# 🚀 Key Features
 
-## 🗂️ Data Schema
+✅ Automated Email-Based ETL Pipeline
 
-The project utilizes two sets of data files.
+✅ Gmail Trigger for Incoming Order Files
 
-#### Initial Load Files (`Postgres Input files`)
+✅ Data Cleaning & Transformation
 
-These files are used for the initial database setup.
-* `dim_customers.csv`: Contains information about customers.
-* `dim_products.csv`: Contains details about products.
-* `dim_targets_orders.csv`: Contains performance targets for each customer.
-* `fact_order_line.csv`: Transactional data for every line item in an order.
-* `fact_aggregate.csv`: Pre-aggregated summary of order data.
+✅ Automated PostgreSQL Data Loading
 
-#### Incremental Update Files (`Incoming Mail Data`)
+✅ Supply Chain KPI Calculation
 
-These are examples of files that arrive periodically via email attachments to update the fact tables.
-* `fact_order_line_india_2025-05-17.csv`
-* `fact_aggregate_india_2025-05-17.csv`
-* `fact_order_line_usa_2025-05-17.csv`
-* `fact_aggregate_usa_2025-05-17.csv`
+✅ Interactive Quadratic Analytics
 
-## 💡 Final Note
+✅ Cloud-Based Architecture
 
-This project serves as a robust template for building real-time, automated analytics pipelines. The architecture is modular, allowing for easy expansion. Future enhancements could include integrating more data sources (e.g., APIs from logistics providers), adding predictive analytics for demand forecasting, or building more complex dashboards in Quadratic.
+---
+# 🔄 Workflow
+<p align="center">
+  <img src="workflow.png" width="900">
+</p>
 
-Contributions, suggestions, and feedback are always welcome! Feel free to open an issue or submit a pull request if you have ideas for improvement.
+---
 
-Happy automating!
+# ⚙️ System Architecture
+
+```
+Incoming CSV Files
+        │
+        ▼
+ Gmail Trigger (n8n)
+        │
+        ▼
+Data Extraction
+        │
+        ▼
+Cleaning & Transformation
+        │
+        ▼
+Supabase PostgreSQL
+        │
+        ▼
+Quadratic Dashboard
+        │
+        ▼
+Business Insights
+```
+
+---
+
+# 📊 Supply Chain KPIs
+
+| KPI | Description |
+|------|-------------|
+| OTIF | On-Time In-Full Delivery |
+| LFR | Line Fill Rate |
+| VFR | Volume Fill Rate |
+| Revenue | Total Order Revenue |
+| Order Volume | Daily Orders |
+| Customer Performance | Supplier-wise Metrics |
+
+---
+
+# 🛠 Technology Stack
+
+| Technology | Purpose |
+|------------|----------|
+| n8n | Workflow Automation |
+| Gmail | Data Trigger |
+| Python | Data Cleaning & Processing |
+| PostgreSQL (Supabase) | Cloud Database |
+| SQL | Data Querying |
+| Quadratic | Analytics & Visualization |
+| CSV Files | Data Source |
+
+---
+
+# 📂 Dataset
+
+The project uses:
+
+- Customer Master
+- Product Master
+- Target Orders
+- Order Line Data
+- Aggregate Sales Data
+
+Incoming transactional files are automatically processed whenever new emails arrive.
+
+---
+
+# 📈 Business Insights Generated
+
+- OTIF Performance
+- Supplier Performance
+- Customer Service Level
+- Order Fulfillment Trends
+- Revenue Analysis
+- Delivery Performance
+- Product-wise Analysis
+
+---
+
+# 📁 Project Structure
+
+```
+AI-Driven-Supply-Chain-Optimization
+
+│── Dataset
+│── Workflow
+│── SQL Scripts
+│── Images
+│── README.md
+```
+
+---
+
+# 💡 Future Enhancements
+
+- Live ERP Integration
+- Demand Forecasting
+- Inventory Optimization
+- Supplier Risk Analysis
+- Power BI Dashboard
+- Predictive Analytics
+
+---
+
+# 👨‍💻 Skills Demonstrated
+
+- ETL Pipeline Design
+- Workflow Automation
+- SQL
+- PostgreSQL
+- Data Engineering
+- Supply Chain Analytics
+- KPI Development
+- Business Intelligence
+- Process Automation
+
+---
+
+# 📬 Contact
+
+**Ch Sanjana**
+
+📧 sanjanach78@gmail.com
+
+💼 LinkedIn: *(Add your profile link here)*
+
+⭐ If you found this project useful, feel free to star the repository!
