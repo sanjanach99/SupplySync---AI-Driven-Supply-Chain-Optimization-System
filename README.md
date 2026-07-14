@@ -17,6 +17,10 @@
 
 # ✨ Project Overview
 
+<p align="center">
+  <img src="workflow.gif" width="900">
+</p>
+
 This project demonstrates an automated end-to-end Supply Chain Analytics pipeline that continuously processes operational data and transforms it into actionable business insights.
 
 Using **n8n** for workflow automation, **Gmail** as the incoming data source, **Supabase PostgreSQL** as the cloud database, and **Quadratic** for analysis, the system eliminates manual data ingestion while enabling real-time supply chain performance monitoring.
